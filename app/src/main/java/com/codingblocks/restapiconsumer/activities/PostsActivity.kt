@@ -7,6 +7,7 @@ import android.support.v7.widget.RecyclerView
 import android.view.View
 import com.codingblocks.restapiconsumer.App
 import com.codingblocks.restapiconsumer.Post
+import com.codingblocks.restapiconsumer.rfcb
 import org.jetbrains.anko.*
 import org.jetbrains.anko.recyclerview.v7.recyclerView
 import retrofit2.Call
@@ -21,16 +22,13 @@ class PostsActivity : AppCompatActivity(), AnkoLogger {
         ui.setContentView(this)
         ui.rvPosts.backgroundColor = Color.RED
 
-        (application as App).getApi().getPosts().enqueue(object: Callback<Array<Post>> {
-            override fun onFailure(call: Call<Array<Post>>?, t: Throwable?) {
-                warn("Posts not fetched", t)
+        (application as App).getApi().getPosts().enqueue(rfcb({
+            t, r ->
+            t?.let { warn("Posts not fetched", it) }
+            r?.let {
+                info("Posts = " + it.body()?.size)
             }
-
-            override fun onResponse(call: Call<Array<Post>>?, response: Response<Array<Post>>?) {
-                info("Posts = " + response?.body()?.size)
-            }
-
-        })
+        }))
     }
 
     class PostsActivityUI: AnkoComponent<PostsActivity> {
