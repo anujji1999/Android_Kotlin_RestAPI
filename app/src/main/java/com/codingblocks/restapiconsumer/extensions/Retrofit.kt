@@ -1,5 +1,9 @@
 package com.codingblocks.restapiconsumer.extensions
 
+import kotlinx.coroutines.experimental.*
+import kotlinx.coroutines.experimental.android.UI
+import org.jetbrains.anko.doAsync
+import org.jetbrains.anko.uiThread
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -18,4 +22,12 @@ fun <T> Call<T>.enqueue (cb: (t: Throwable?, r: Response<T>?) -> Unit) {
         }
 
     })
+}
+
+fun <T> Call<T>.execute(block: (T) -> Unit) {
+    async(CommonPool) {
+        execute()?.body()?.let {
+            withContext(UI) { block(it) }
+        }
+    }
 }

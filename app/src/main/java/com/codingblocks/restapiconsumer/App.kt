@@ -9,7 +9,7 @@ import retrofit2.converter.gson.GsonConverterFactory
  * Created by championswimmer on 14/01/18.
  */
 class App: Application() {
-    lateinit var jpApi: JpApi
+    private lateinit var jpApi: JpApi
     override fun onCreate() {
         super.onCreate()
 

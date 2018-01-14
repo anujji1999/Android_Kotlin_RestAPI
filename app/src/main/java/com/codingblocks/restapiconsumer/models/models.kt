@@ -13,3 +13,10 @@ data class Album(
         val userId: Int? = null
 )
 
+
+data class Todo(
+		val userId: Int? = null,
+		val id: Int? = null,
+		val title: String? = null,
+		val completed: Boolean? = null
+)

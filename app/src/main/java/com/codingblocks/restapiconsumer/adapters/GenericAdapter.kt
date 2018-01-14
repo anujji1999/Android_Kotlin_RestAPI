@@ -16,7 +16,7 @@ class GenericAdapter<T> (
     override fun getItemCount(): Int = items.size
 
     override fun onBindViewHolder(holder: GenericViewHolder?, position: Int) {
-        holder?.view?.let { bindView(items[position], it) }
+        holder?.itemView?.let { bindView(items[position], it) }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): GenericViewHolder {
@@ -29,5 +29,5 @@ class GenericAdapter<T> (
         }
     }
 
-    class GenericViewHolder(val view: View?): RecyclerView.ViewHolder(view)
+    class GenericViewHolder(itemView: View?): RecyclerView.ViewHolder(itemView)
 }

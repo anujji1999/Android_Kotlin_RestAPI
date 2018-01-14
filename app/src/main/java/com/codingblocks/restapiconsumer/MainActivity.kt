@@ -5,8 +5,9 @@ import android.os.Bundle
 import android.view.View
 import com.codingblocks.restapiconsumer.activities.AlbumsActivity
 import com.codingblocks.restapiconsumer.activities.PostsActivity
+import com.codingblocks.restapiconsumer.activities.TodosActivity
 import org.jetbrains.anko.*
-import org.jetbrains.anko.sdk25.coroutines.onClick
+import org.jetbrains.anko.sdk21.coroutines.onClick
 
 class MainActivity : AppCompatActivity() {
 
@@ -38,17 +39,11 @@ class MainActivity : AppCompatActivity() {
                 linearLayout {
                     lparams(width = matchParent, height = 0, weight = 1F)
                     button("USERS")
-                            .lparams(
-                                    height = matchParent,
-                                    width = 0,
-                                    weight = 1F
-                            )
+                            .lparams(0, matchParent, 1F)
                     button("TODOS")
-                            .lparams(
-                                    height = matchParent,
-                                    width = 0,
-                                    weight = 1F
-                            )
+                            .lparams(0, matchParent, 1F)
+                            .onClick { startActivity<TodosActivity>() }
+
                 }
             }
         }
