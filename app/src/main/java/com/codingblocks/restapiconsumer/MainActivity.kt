@@ -11,6 +11,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        MainAcivityUI().setContentView(this)
     }
 
     class MainAcivityUI: AnkoComponent<MainActivity> {
