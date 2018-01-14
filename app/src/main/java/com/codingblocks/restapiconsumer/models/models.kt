@@ -1,4 +1,4 @@
-package com.codingblocks.restapiconsumer
+package com.codingblocks.restapiconsumer.models
 
 data class Post(
         val id: Int? = null,

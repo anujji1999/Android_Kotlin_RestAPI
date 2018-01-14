@@ -1,7 +1,7 @@
 package com.codingblocks.restapiconsumer.api
 
-import com.codingblocks.restapiconsumer.Album
-import com.codingblocks.restapiconsumer.Post
+import com.codingblocks.restapiconsumer.models.Album
+import com.codingblocks.restapiconsumer.models.Post
 import retrofit2.Call
 import retrofit2.http.GET
 
