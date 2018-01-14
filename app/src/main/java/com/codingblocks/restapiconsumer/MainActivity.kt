@@ -3,6 +3,7 @@ package com.codingblocks.restapiconsumer
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import com.codingblocks.restapiconsumer.activities.AlbumsActivity
 import com.codingblocks.restapiconsumer.activities.PostsActivity
 import org.jetbrains.anko.*
 import org.jetbrains.anko.sdk25.coroutines.onClick
@@ -32,7 +33,7 @@ class MainActivity : AppCompatActivity() {
                                     height = matchParent,
                                     width = 0,
                                     weight = 1F
-                            )
+                            ).onClick { startActivity<AlbumsActivity>() }
                 }
                 linearLayout {
                     lparams(width = matchParent, height = 0, weight = 1F)

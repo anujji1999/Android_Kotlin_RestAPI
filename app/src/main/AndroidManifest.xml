@@ -20,6 +20,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".activities.PostsActivity"></activity>
+        <activity android:name=".activities.AlbumsActivity"></activity>
     </application>
 
 </manifest>
